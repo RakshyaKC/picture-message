@@ -47,5 +47,8 @@ class PicturesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def picture_params
       params.require(:picture).permit(:image, :description)
+      # started with:  { handshake: "whats good" }
+      # then fixed to:  { picture: "whats good" }
+      # finally:  { picture: { image: BinaryFile } }
     end
 end
