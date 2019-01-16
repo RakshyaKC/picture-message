@@ -17,7 +17,6 @@ class PicturesController < ApplicationController
   # POST /pictures
   def create
     @picture = Picture.new(picture_params)
-
     if @picture.save
       render json: @picture, status: :created, location: @picture
     else
