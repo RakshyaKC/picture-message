@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :update, :destroy]
+  # before_action :set_s3_direct_post, only: [:create]
 
   # GET /pictures
   def index
@@ -51,4 +52,11 @@ class PicturesController < ApplicationController
       # then fixed to:  { picture: "whats good" }
       # finally:  { picture: { image: BinaryFile } }
     end
+
+    # def set_s3_direct_post
+    #   puts 'here'
+    #   @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      # uuid - unique user id
+      # acl = access controller
+    # end
 end
