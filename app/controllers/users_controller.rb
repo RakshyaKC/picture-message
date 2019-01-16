@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ProtectedController
-  skip_before_action :authenticate, only: %i[signup signin]
+  skip_before_action :authenticate, only: %i[signup signin index]
 
   # POST '/sign-up'
   def signup
@@ -44,6 +44,11 @@ class UsersController < ProtectedController
     else
       head :bad_request
     end
+  end
+
+  def index
+    @users = User.all
+    render json: @users
   end
 
   private

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :messages
   # RESTful routes
   resources :examples, except: %i[new edit]
-
+  resources :users, only: %i[index]
   # Custom routes
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
