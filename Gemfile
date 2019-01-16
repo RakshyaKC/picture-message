@@ -4,14 +4,15 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'active_model_serializers', '~> 0.10.6'
+gem 'aws-sdk', '~> 2'
 gem 'bcrypt', '~> 3.1.11'
 gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave-aws'
 gem 'mini_magick', '~> 4.3'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.11.2'
 gem 'rack-cors', '~> 1.0.2', require: 'rack/cors'
 gem 'rails', '~> 5.2.1'
-gem 'aws-sdk', '~> 2'
 
 group :development, :test do
   gem 'byebug', '~> 10.0.0', platform: :mri
