@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class MessagesController < ProtectedController
   before_action :set_message, only: [:show, :update, :destroy]
 
   # GET /messages
@@ -15,7 +15,10 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
+    # message_params == { picture_id: 1, receiver_id: 2 }
+    # @message = Message.new(picture_id: 1, receiver_id: 2, sender_id: current_user.id)
     @message = Message.new(message_params)
+    @message.sender = current_user
 
     if @message.save
       render json: @message, status: :created, location: @message
@@ -46,6 +49,6 @@ class MessagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def message_params
-      params.require(:message).permit(:user_id)
+      params.require(:message).permit(:receiver_id, :picture_id)
     end
 end
