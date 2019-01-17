@@ -86,7 +86,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.carrierwave_defaults = {
-    storage: s3,
+    :storage => :s3,
     s3_region: ENV['AWS_REGION'],
     s3_credentials: {
       bucket: ENV['S3_BUCKET_NAME'],
