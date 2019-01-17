@@ -3,10 +3,14 @@ class MessagesController < ProtectedController
 
   # GET /messages
   def index
-    @messages = Message.all
-
+    @messages = current_user.received_messages.all
     render json: @messages
   end
+    # @sent_messages = current_user.sent_messages.all
+    # render json: {
+    #   received_messages: @received_messages
+    #   # sent_messages: @sent_messages
+    # }
 
   # GET /messages/1
   def show
