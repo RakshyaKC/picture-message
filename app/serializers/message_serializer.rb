@@ -1,4 +1,6 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :user
+  attributes :id, :seen
+  has_one :sender
+  has_one :receiver
+  has_one :picture
 end
