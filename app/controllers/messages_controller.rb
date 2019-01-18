@@ -53,6 +53,6 @@ class MessagesController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def message_params
-      params.require(:message).permit(:receiver_id, :picture_id)
+      params.require(:message).permit(:receiver_id, :picture_id, :seen)
     end
 end
