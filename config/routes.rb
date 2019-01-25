@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   resources :pictures
-  resources :follows
   resources :messages
   # RESTful routes
   resources :examples, except: %i[new edit]
